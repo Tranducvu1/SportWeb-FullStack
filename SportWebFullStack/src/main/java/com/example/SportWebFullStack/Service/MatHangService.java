@@ -52,6 +52,19 @@ public class MatHangService {
 		    return listMatHang;
 	}
 	
+	
+	public List<MatHang> getDataDanhMuc(Integer idproduct) throws JsonMappingException, JsonProcessingException {
+		String api= apiURL+"/mathangbydanhmuc/"+idproduct;
+		System.out.println(api);
+	    RequestEntity<?> requestEntity = new RequestEntity<>( HttpMethod.GET, URI.create(api));
+	    ResponseEntity<String> response = restTemplate.exchange(requestEntity, String.class);
+	    String json = response.getBody();
+		    ObjectMapper objectMapper = new ObjectMapper();
+		    List<MatHang> listMatHang = objectMapper.readValue(json, new TypeReference<List<MatHang>>() {});
+
+		    return listMatHang;
+	}
+	
 	public MatHang getIddm(Integer id) throws JsonMappingException, JsonProcessingException {
 		String api= apiURL+"/product/"+id;
 

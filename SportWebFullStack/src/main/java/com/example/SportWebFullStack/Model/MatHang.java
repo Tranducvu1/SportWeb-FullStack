@@ -22,15 +22,17 @@ public class MatHang {
     private String mamathang;
     private String tenmathang;
     private String maphanloai;
+    private String size;
     private String hinhanh;
     private Long dongia;
     private String danhgia;
-    private int soluong; // Đã sửa thành kiểu int
+    private int soluong; 
+    private int  soluongsanpham;
     private String mota;
     private String gender;
     private Timestamp ngaythem;
     private Long giamgia;
     private int danhmuc_id;
 
-    private DanhMuc danhMuc;
+   
 }

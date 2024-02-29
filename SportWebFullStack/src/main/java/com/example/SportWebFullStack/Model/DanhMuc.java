@@ -20,5 +20,6 @@ public class DanhMuc {
     private int id;
     private String madanhmuc;
     private String tendanhmuc;
-    private List<MatHang> mathangs ;
+   
+    private MatHang mathang;
 }

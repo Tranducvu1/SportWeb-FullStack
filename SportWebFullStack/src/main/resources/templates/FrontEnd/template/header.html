@@ -211,7 +211,7 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
                         <ul class="list-none-ib">
                             <!-- Search-->
                             <li class="hidden-xs">
-                                <form role="search" class="searchform__header" id="searchform__desktop" action="/admin/search" method="get">
+                                <form role="search" class="searchform__header" id="searchform__desktop" th:action="@{/sport/search}" method="get">
                                     <input value="" name="keyword" type="search" placeholder="Tìm..." id="text-search" autofocus/>
                                     <button type="submit" class="tp_button">
                                         <i aria-hidden="true" class="fa fa-search"></i>
@@ -222,13 +222,13 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
                             <!-- Whishlist-->
                             <li><a href="signin.html" class="js_whishlist-btn"><i aria-hidden="true" class="fa fa-user"></i></a></li>
                             <li>
-                                <a th:href="@{/sport/cart}">
+                                <a th:href="@{/sport/product/cart}">
                                     <div class="cart-icon">
                                         <i aria-hidden="true" class="fa fa-shopping-bag"></i>
                                     </div>
                                     <div class="cart-title">
                                         <span class="cart-count cartCount count_item_pr"
-                                              id="cart-total"> 0 </span>
+                                              id="cart-total"></span>
                                         <!--<span class="cart-price strong">-->
                                         <!-- VNĐ</span>-->
                                     </div>
@@ -256,7 +256,7 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
                         &nbsp;<i class="fa fa-angle-down hidden-sm hidden-xs" style="margin-left: 3px;"></i></a>
                          <ul class="tp_menu nav-dropdown js-nav-dropdown" style="display: none;">
    <li th:each="b : ${namdanhmucs}" class="tp_menu_item dropdown-submenu nav-item-lv2">
-    <a class="nav-link tp_menu_item" th:href="@{'/danhmuc/' + ${b.id}}">
+    <a class="nav-link tp_menu_item" th:href="@{'/sport/danhmuc/' + ${b.id}}">
         <span th:text="${b.tendanhmuc}"></span>
     </a>
 </li>
@@ -267,7 +267,7 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
                             <a href="../do-nu-pc283070.html" class="tp_menu_item"> Đồ Nữ
                         &nbsp;<i class="fa fa-angle-down hidden-sm hidden-xs" style="margin-left: 3px;"></i></a><ul class="tp_menu nav-dropdown js-nav-dropdown" style="display: none;">
                                <li th:each="b : ${nudanhmucs}" class="tp_menu_item dropdown-submenu nav-item-lv2">
-        <a class="nav-link tp_menu_item"  th:text="${b.tendanhmuc}">
+        <a class="nav-link tp_menu_item"  th:text="${b.tendanhmuc}" th:href="@{'/sport/danhmuc/' + ${b.id}}">
         </a>
     </li>
                                </ul></li>
@@ -524,6 +524,7 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
             </form>
         </div>
     </div>
+</header>
 
 <script th:src="@{/js/jquery/jquery.min5e1f.js}"></script>
 <script th:src="@{/js/bootstrap/bootstrap-3.3.5.min5e1f.js}"></script>
@@ -541,6 +542,6 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
 <script th:src="@{/js/lib5e1f.js?v=2}"></script>
 <script th:src="@{/tp/T0194/js/jquey_appear5e1f.js}"></script>
     <!-- End Header Container -->
-</header>
+
 </body>
 </html>

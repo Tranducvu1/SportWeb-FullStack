@@ -46,4 +46,6 @@ public class DonHang {
 	private String hinhanh;
 	
 	private Long Money;
+	
+	
 }

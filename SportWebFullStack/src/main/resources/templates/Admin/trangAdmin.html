@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/admin/css/admin.css}"></head>
+    
     <title>Trang Quản Trị</title>
 </head>
 <body>
-    <div th:replace="template/header :: header"></div>
 
-    <div th:replace="template/sidebar :: sidebar"></div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" th:include="Admin/template/header :: header"></nav>
 
-    <div th:replace="template/content :: content"></div>
+    <div class="container-fluid" th:include="Admin/template/sidebar :: sidebar"></div>
 
-    <div th:replace="template/footer :: footer"></div>
+    <div style="margin-top: -45px; margin-left: 231px;" class="col-md-9 animated bounce" th:include="Admin/template/content :: content"></div>
+    
+    
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

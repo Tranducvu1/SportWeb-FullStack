@@ -20,7 +20,7 @@
 <link th:href="@{/tp/T0194/css/style1bce.css}" rel="stylesheet"/>
 <link th:href="@{/tp/T0194/css/module1bce.css}" rel="stylesheet"/>
 <link th:href="@{/tp/T0194/css/responsive1bce.css}" rel="stylesheet"/>
-  <title th:text="${product.tenmathang}"></title>
+  
 <link th:href="@{/tp/T0194/css/style_fashion1bce.css}" rel="stylesheet"/>
 <link th:href="@{/tp/T0194/css/mycss1bce.css}" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
@@ -132,7 +132,7 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
     
         <div class="container">
             <div class="row">
-<form method="POST" th:object="${donhang}" th:action="@{/sport/product/{idproduct}(idproduct=${product.id})}">
+<form method="POST" th:object="${donhang}"  th:action="@{/sport/product/{idproduct}(idproduct=${product.id})}">
                 <div class="col-xs-12 details-product" >
                     <div class="row" >
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -187,8 +187,9 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
                             </div>
                                 <div id="price-view" class="price-box">
                                     Giá:&nbsp;
-                                    <span class="special-price"><span class="price product-price tp_product_detail_price" th:field="${product.dongia}">VNĐ</span> </span> <!-- Giá Khuyến mại -->                                </div>
-
+                                    <span class="special-price"><span class="price product-price tp_product_detail_price" th:text="${product.dongia}"></span><span>VNĐ</span> </span> <!-- Giá Khuyến mại -->                                </div>
+									
+									<a rel="nofollow" class="active" th:text="${product.size}"></a> 
                             <div class="attr">
                                                             </div>
 
@@ -203,16 +204,18 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
                                     <label class="hidden" >Số lượng: </label>
                                     <div class="text-amount">Số lượng :</div>                                    <div class="custom custom-btn-number f-left">
                                         <!--<span class="qtyminus" data-field="quantity"><i class="fa fa-caret-left"></i></span>-->
-	        <input type="number" class="input-text qty text-center input_quantity" data-field='quantity' value="1" min="1" max="49" id="quantity_product" name="quantity" onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;">
+  <input type="number" id="quantity_product" value="1" >
+
+
 	
 	                                        <!--<span class="qtyplus" data-field="quantity"><i class="fa fa-caret-right"></i></span>-->
                                     </div>
 
                                     
-                                                <button id="product-1" type="submit"  onclick="addToCart(1)"
-                                                class="btn btn-lg btn-primary btnAddToCart tp_button">
-                                                    <span>Thêm vào giỏ hàng</span>
-                                                </button>
+                                                <button id="product-1" type="submit" onclick="addToCart(1)" 
+        class="btn btn-lg btn-primary btnAddToCart tp_button">
+  <span>Thêm vào giỏ hàng</span>  
+</button>
                                             
                                     <a class="iWishAdd iwishAddWrapper" title="Yêu thích" href="javascript:" rel="39106611"><i class="fa fa-heart-o"></i></a>                                </div>
                                                                 <div>
@@ -411,67 +414,7 @@ src="https://www.facebook.com/tr?id=453507135869629&amp;ev=PageView&amp;noscript
 .article-main .rte h3,.article-main .rte h2{
 margin-top:10px;
 }
-</style><script type="application/ld+json">{
-"@context": "https://schema.org",
-"@type": "LocalBusiness",
-"name": "IMSPORTS ",
-"alternateName": "IMSPORTS Store chuyên cung cấp các sản phẩm về chạy bộ, chạy địa hình",
-"@id": "https://imsports.vn/",
-"logo":  "https://pos.nvncdn.com/be3294-43017/store/20190301_nNFDAnwWEcjHvjgWsv3nzQtT.png",
-"image": ["https://pos.nvncdn.com/be3294-43017/bn/20230519_FgPQt7OK.jpeg",
-"../pos.nvncdn.com/be3294-43017/bn/20230519_FgPQt7OK.html",
-"../pos.nvncdn.com/be3294-43017/bn/20230519_FgPQt7OK.html"
-],
-"description": "IMSPORTS chuyên cung cấp sản phẩm giày và các phụ kiện phục vụ chạy bộ, chạy địa hình (trail) từ các thương hiệu nổi tiếng Hoka, Brooks, Coros, Raildlight,Buff...",
-"hasMap": "https://g.page/imsportsvn?share",
-"url": "https://imsports.vn/",
-"telephone": "0846335858",
-"priceRange": "VND",
-"email": "imsportsvn@gmail.com",
-"address": {
-"@type": "PostalAddress",
-"streetAddress": "Số 58A Trại Găng, Thanh Nhàn",
-"addressLocality": "Hai Bà Trưng",
-"addressRegion": "Hà Nội",
-"postalCode": "100000",
-"addressCountry": "VN"},
-"review": {
-"@type": "Review",
-"reviewRating": {
-"@type": "Rating",
-"ratingValue": "4.9",
-"bestRating": "5"},
-"author": {
-"@type": "Person",
-"name": "Hoàng Lê"}},
-"geo": {
-"@type": "GeoCoordinates",
-"latitude": 21.0035324,
-"longitude": 105.853157},
-"openingHoursSpecification": {
-"@type": "OpeningHoursSpecification",
-"dayOfWeek": [
-"Monday",
-"Tuesday",
-"Wednesday",
-"Thursday",
-"Friday",
-"Saturday",
-"Sunday"],
-"opens": "09:00",
-"closes": "21:00"},
-"sameAs": [
-"https://www.facebook.com/imsports.vn",
-"https://www.pinterest.com/seoimsport/",
-"https://tawk.to/imsports",
-"https://imsports1.tumblr.com/",
-"https://myspace.com/imsport1",
-"https://gitlab.com/imsportsvn",
-"https://qiita.com/imsportsvn",
-"https://issuu.com/imsportsvn",
-"https://linkhay.com/blog/207855/imsports",
-"https://gab.com/imsports"]}
-</script><style>
+</style><style>
 @media screen and (max-width: 1199px){
 .article-main .article-content iframe {
     width: 100%;
@@ -501,8 +444,8 @@ margin-top:10px;
 }
 }
 
-</style><link rel="stylesheet" href="../web.nvnstatic.net/css/skinc164.css?v=9" type="text/css"><style type="text/css"> #settingSkins { left: -40px; }</style><div id="myModal" class="modal fade" role="dialog"></div>
- <script>
+</style>
+ <!-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             var quantityInput = document.getElementById("quantity_product");
 
@@ -512,7 +455,50 @@ margin-top:10px;
             });
         });
     </script>
+ -->
+<script>
 
+function addToCart(productId) {
+
+  // Lấy giá trị quantity   
+  var qty = document.getElementById("quantity_product").value;
+  var quantity = qty.value; 
+  // Kiểm tra xem có lấy được giá trị không
+  console.log("Quantity: ", qty); 
+
+  // Lưu vào localStorage
+  localStorage.setItem("product_"+productId+"_qty", qty);
+  localStorage.setItem("quantity", quantity);
+
+  
+  qty.onchange = function(){
+	  var quantity = this.value;
+	  localStorage.setItem("quantity", quantity);  
+	}
+}
+</script><script>
+  // Biến lưu số lượng
+  let cartCount = 0;
+  let count = 0;
+  // Lấy phần tử button
+  let btnAdd = document.getElementById("product-1");
+
+  // Hàm xử lý khi click nút Thêm
+  function addToCart() {
+    cartCount++;
+    count++;
+    console.log("in ra");
+    updateCart();
+  }
+  // Cập nhật số lượng
+  function updateCart(count) {
+	  console.log("lấy");
+        localStorage.setItem('count',cartCount)
+        console.log(cartCount)
+    document.getElementById("cart-total").innerText = cartCount;
+  }
+  // Bắt sự kiện click cho nút Thêm
+</script>
 </body>
 
 </html>

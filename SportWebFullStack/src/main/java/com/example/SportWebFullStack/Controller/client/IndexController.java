@@ -2,6 +2,7 @@ package com.example.SportWebFullStack.Controller.client;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.example.SportWebFullStack.Model.Banner;
 import com.example.SportWebFullStack.Model.DanhMuc;
@@ -73,23 +75,22 @@ private DanhMucService danhMucService;
 		return "FrontEnd/index";
 	}
 	
-	@GetMapping("/search")
-	public String searchkeyword(Model model, @RequestParam(value = "keyword", required = false) String keyword) throws Exception {
-		 if (keyword != null) {
-		String encodedKeyword = URLEncoder.encode(keyword, "UTF-8");
-		 List<MatHang> searchResults = matHangService.searchDataFromAPI(encodedKeyword);
-		 int submittedCount = 0;	
-		 for (MatHang mathang : searchResults) {
-				if (mathang.getId() != 0 && mathang.getTenmathang() != null) {
-					submittedCount++;
-				} 
-			}
-		 model.addAttribute("searchResults", searchResults);
-		 model.addAttribute("submittedCount",submittedCount);
-		 System.out.println("Kết quả tìm kiếm"+searchResults);
-		 }
-		return "FrontEnd/search";
+
 	
+	@GetMapping("/search")
+	public String searchProducts(Model model, @RequestParam("keyword") String keyword) throws JsonMappingException, JsonProcessingException {
+	  
+	    // Encode keyword để loại bỏ ký tự đặc biệt
+	    String encodedKeyword = URLEncoder.encode(keyword, StandardCharsets.UTF_8);
+	    // Sanitize input
+	    List<MatHang> result = matHangService.searchDataFromAPI(encodedKeyword);
+
+	    model.addAttribute("products", result);
+
+	    return "FrontEnd/search";
+
+	
+
 	}
 
 }

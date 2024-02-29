@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-    <div class="col-md-9 animated bounce">
+    <<div th:fragment="content" class="col-md-9 animated bounce" style="margin-top: -45px; margin-left: 231px;">
         <h3 class="page-header">Danh sách công việc</h3>
         <c:if test="${listCongViec.soDonHangMoi > 0}">
              <p>Bạn có: <a href='/admin/don-hang'> ${listCongViec.soDonHangMoi} đơn hàng mới</a></p>
